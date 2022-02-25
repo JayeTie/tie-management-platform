@@ -36,27 +36,27 @@
 
 - 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
   
-		概念：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为"block"，则为“块级”元素；span默认display属性值为"inline"，是“行内”元素。
+	概念：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为"block"，则为“块级”元素；span默认display属性值为"inline"，是“行内”元素。
 
-		分类：
+	分类：
 
-				（1）行内元素有：a b span img input select strong（强调的语气）
+		（1）行内元素有：a b span img input select strong（强调的语气）
 
-				https://developer.mozilla.org/zh-CN/docs/Web/HTML/Inline_elements
+		https://developer.mozilla.org/zh-CN/docs/Web/HTML/Inline_elements
 
-				（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4… p等等
+		（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4… p等等
 
-				https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements
+		https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements
 
-				（3）常见的空元素：<br> <hr> <img> <input> <link> <meta>
+		（3）常见的空元素：<br> <hr> <img> <input> <link> <meta>
 
-						鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+				鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
 
-		补充：
+	补充：
 
-				不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
-				
-				参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
+		不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
+
+		参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
 
 - 页面导入样式时，使用link和@import有什么区别？
 		（1）link属于XHTML标签，除了加载CSS外，还能用于定义RSS, 定义rel连接属性等作用；而@import是CSS提供的，只能用于加载CSS;
