@@ -6,9 +6,9 @@
 
 - Doctype作用？标准模式与兼容模式各有什么区别?
   
-  <!DOCTYPE>声明位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
+		<!DOCTYPE>声明位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
 
-  标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+		标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
 
 - 简述一下你对HTML语义化的理解？
   
@@ -50,7 +50,7 @@
 
 		（3）常见的空元素：<br> <hr> <img> <input> <link> <meta>
 
-				鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+		鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
 
 	补充：
 
@@ -100,64 +100,96 @@
   	* 如何区分HTML5： DOCTYPE声明\新增的结构元素\功能元素
 
 - HTML5的离线储存怎么使用，工作原理能不能解释一下？
+  
 		在用户没有与因特网连接时，可以正常访问站点或应用，在用户与因特网连接时，更新用户机器上的缓存文件。
+
 		原理：HTML5的离线存储是基于一个新建的.appcache文件的缓存机制(不是存储技术)，通过这个文件上的解析清单离线存储资源，这资源就会像cookie一样被存储了下来。之后当网络在处于离线状态下时，浏览器会通过被离线存储的数据进行页面展示。
+		
 		如何使用：
-				1）页面头部像下面一样加入一个manifest的属性；
-				2）在cache.manifest文件的编写离线存储的资源；
-						CACHE MANIFEST
-						#v0.11
-						CACHE:
-						js/app.js
-						css/style.css
-						NETWORK:
-						resourse/logo.png
-						FALLBACK:
-						//offline.html
-				3）在离线状态时，操作window.applicationCache进行需求实现。
+
+			1）页面头部像下面一样加入一个manifest的属性；
+
+			2）在cache.manifest文件的编写离线存储的资源；
+
+				CACHE MANIFEST	#v0.11
+
+				CACHE: js/app.js、css/style.css
+
+				NETWORK: resourse/logo.png
+
+				FALLBACK: //offline.html
+
+			3）在离线状态时，操作window.applicationCache进行需求实现。
+
 		详细的使用请参考：
-				[HTML5 离线缓存-manifest简介](http://yanhaijing.com/html/2014/12/28/html5-manifest/)
-				[有趣的HTML5：离线存储](http://segmentfault.com/a/1190000000732617)
+
+			[HTML5 离线缓存-manifest简介](http://yanhaijing.com/html/2014/12/28/html5-manifest/)
+			
+			[有趣的HTML5：离线存储](http://segmentfault.com/a/1190000000732617)
 
 - 浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？
+  
 		（1）在线的情况下，浏览器发现html头部有manifest属性，它会请求manifest文件，如果是第一次访问app，那么浏览器就会根manifest文件的内容下载相应的资源并且进行离线存储。如果已经访问过app并且资源已经离线存储了，那么浏览器就会使用离线的资源加载页面，然后浏览器会对比新的manifest文件与旧的manifest文件，如果文件没有发生改变，就不做任何操作，如果文件改变了，那么就会重新下载文件中的资源并进行离线存储。
+
 		（2）离线的情况下，浏览器就直接使用离线存储的资源。
+
 		详细请参考：[有趣的HTML5：离线存储](http://segmentfault.com/a/1190000000732617)
 
 - 请描述一下 cookies，sessionStorage 和 localStorage 的区别？
+  
 		存储方式：
-				cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。
-				cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。
-				sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+
+			cookie是网站为了标示用户身份而储存在用户本地终端（Client Side）上的数据（通常经过加密）。
+
+			cookie数据始终在同源的http请求中携带（即使不需要），记会在浏览器和服务器间来回传递。
+
+			sessionStorage和localStorage不会自动把数据发给服务器，仅在本地保存。
+
 		存储大小：
-				cookie数据大小不能超过4k；
-				sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+			cookie数据大小不能超过4k；
+
+			sessionStorage和localStorage 虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大。
+
 		有期时间：
-				localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
-				sessionStorage  数据在当前浏览器窗口关闭后自动删除；
-				cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
+
+			localStorage    存储持久数据，浏览器关闭后数据不丢失除非主动删除数据；
+
+			sessionStorage  数据在当前浏览器窗口关闭后自动删除；
+
+			cookie          设置的cookie过期时间之前一直有效，即使窗口或浏览器关闭
 
 - iframe有那些缺点？
 		（1）iframe会阻塞主页面的Onload事件；
+
 		（2）搜索引擎的检索程序无法解读这种页面，不利于SEO;
+
 		（3）iframe和主页面共享连接池，而浏览器对相同域的连接有限制，所以会影响页面的并行加载。
-			使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript
-			动态给iframe添加src属性值，这样可以绕开以上两个问题。
+
+			使用iframe之前需要考虑这两个缺点。如果需要使用iframe，最好是通过javascript、动态给iframe添加src属性值，这样可以绕开以上两个问题。
 
 - Label的作用是什么？是怎么用的？
+  
 		label标签来定义表单控制间的关系,当用户选择该标签时，浏览器会自动将焦点转到和标签相关的表单控件上。
+
 		示例：
-				<label for="Name">Number:</label>
-				<input type=“text“name="Name" id="Name"/>
-				<label>Date:<input type="text" name="B"/></label>
+
+			<label for="Name">Number:</label>
+
+			<input type=“text“name="Name" id="Name"/>
+			
+			<label>Date:<input type="text" name="B"/></label>
 
 - HTML5的form如何关闭自动完成功能？
+  
 		给不想要提示的 form 或某个 input 设置为 autocomplete=off。
 
 - 如何实现浏览器内多个标签页之间的通信? (阿里)
+  
 		（1）WebSocket、SharedWorker；
+
 		（2）调用localstorge、cookies等本地存储方式；localstorge另一个浏览上下文里被添加、修改或删除时，它都会触发一个事件，我们通过监听事件，控制它的值来进行页面信息通信；
-				注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常。
+
+			注意quirks：Safari 在无痕模式下设置localstorge值时会抛出 QuotaExceededError 的异常。
 
 - webSocket如何兼容低浏览器？(阿里)
 		Adobe Flash Socket 、
