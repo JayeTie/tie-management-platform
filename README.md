@@ -7,34 +7,55 @@
 - Doctype作用？标准模式与兼容模式各有什么区别?
   
   <!DOCTYPE>声明位于HTML文档中的第一行，处于 <html> 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。DOCTYPE不存在或格式不正确会导致文档以兼容模式呈现。
-	
-  标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
+
+  标准模式的排版和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作。
 
 - 简述一下你对HTML语义化的理解？
+  
 		（SEO：Search English Optimization，搜索引擎优化）
+
 		用正确的标签做正确的事情。
+
 		html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析;
+
 		即使在没有样式CSS情况下也以一种文档格式显示，并且是容易阅读的;
+
 		搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO;
+
 		使阅读源代码的人对网站更容易将网站分块，便于阅读维护理解。
 
 - HTML5 为什么只需要写 `<!DOCTYPE HTML>`？
+  
 		（SGML：Standard Generalized Markup Language，即标准通用标记语言)
+
 		（DTD：Document Type Definition，文档类型定义）
+
 		HTML5不基于SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
+
 		HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
 
 - 行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？
+  
 		概念：CSS规范规定，每个元素都有display属性，确定该元素的类型，每个元素都有默认的display值，如div的display默认值为"block"，则为“块级”元素；span默认display属性值为"inline"，是“行内”元素。
+
 		分类：
+
 				（1）行内元素有：a b span img input select strong（强调的语气）
+
 				https://developer.mozilla.org/zh-CN/docs/Web/HTML/Inline_elements
+
 				（2）块级元素有：div ul ol li dl dt dd h1 h2 h3 h4… p等等
+
 				https://developer.mozilla.org/zh-CN/docs/Web/HTML/Block-level_elements
+
 				（3）常见的空元素：<br> <hr> <img> <input> <link> <meta>
+
 						鲜为人知的是：<area> <base> <col> <command> <embed> <keygen> <param> <source> <track> <wbr>
+
 		补充：
+
 				不同浏览器（版本）、HTML4（5）、CSS2等实际略有差异
+				
 				参考: http://stackoverflow.com/questions/6867254/browsers-default-css-for-html-elements
 
 - 页面导入样式时，使用link和@import有什么区别？
